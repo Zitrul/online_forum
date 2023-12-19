@@ -7,7 +7,9 @@
         p {
           animation-duration: 3s;
           animation-name: slidein;
+          animation-iteration-count: infinite;
         }
+
 
         @keyframes slidein {
           from {
@@ -25,7 +27,7 @@
 </head>
 <body>
     <p>
-        Hello world!
+        {{context["mem"]}}
     </p>
     <div class = "main_page_info">
         <h1>Добро пожаловать на мега форум!</h1>
