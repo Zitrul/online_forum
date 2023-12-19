@@ -3,10 +3,11 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-@app.route("/pages/<id>")
-def page(id):
+@app.route("/pages/author/<author>/<id>")
+def page(author, id):
     context = {}
     context["name"] = id
+    context["author"] = author
     context["text"] = """some_unusual_page_text"""
     return render_template("page.html", context = context)
 @app.route("/")
