@@ -3,6 +3,12 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
+@app.route("/pages/<id>")
+def page(id):
+    context = {}
+    context["name"] = id
+    context["text"] = """some_unusual_page_text"""
+    return render_template("page.html", context = context)
 @app.route("/")
 def index():
     a = open("answer.txt","r")
@@ -15,5 +21,6 @@ def index():
     ans2 = a.readlines()
     a.close()
     return render_template("index.html", text = ans, text1= ans1, text2 = ans2)
+
 
 app.run(debug=True,port = 5001, host = "0.0.0.0")
