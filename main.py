@@ -1,4 +1,5 @@
 import flask
+import random
 from flask import Flask, render_template
 
 app = Flask(__name__)
@@ -12,6 +13,9 @@ def page(author, id):
     return render_template("page.html", context = context)
 @app.route("/")
 def index():
+    context = {}
+    memes = ["Страница1", "Hallo"]
+    random.shuffle(memes)
     a = open("answer.txt","r")
     ans = a.readlines()
     a.close()
@@ -21,7 +25,8 @@ def index():
     a = open("answer2.txt","r")
     ans2 = a.readlines()
     a.close()
-    return render_template("index.html", text = ans, text1= ans1, text2 = ans2)
+    context["mem"] = memes[0]
+    return render_template("index.html", text = ans, text1= ans1, text2 = ans2, context = context)
 
 
 app.run(debug=True,port = 5001, host = "0.0.0.0")
