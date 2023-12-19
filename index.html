@@ -2,26 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Шок слитые ответыЙ!!!!!</title>
+    <title>OnlineForum</title>
+    <style>
+        p {
+          animation-duration: 3s;
+          animation-name: slidein;
+        }
+
+        @keyframes slidein {
+          from {
+            margin-left: 100%;
+            width: 300%;
+          }
+
+          to {
+            margin-left: 0%;
+            width: 100%;
+          }
+        }
+
+    </style>
 </head>
 <body>
-    {% for i in text %}
-        {{i}}
+    <p>
+        Hello world!
+    </p>
+    <div class = "main_page_info">
+        <h1>Добро пожаловать на мега форум!</h1>
+    </div>
+    <div class = "main_content" bac="#3366CC">
+        {% for i in text %}
+            {{i}}
+            <br>
+        {% endfor %}
         <br>
-    {% endfor %}
-    <br>
-    C
-    <hr>
-    {% for i in text1 %}
-        {{i}}
+        C
+        <hr>
+        {% for i in text1 %}
+            {{i}}
+            <br>
+        {% endfor %}
         <br>
-    {% endfor %}
-    <br>
-    D
-    <hr>
-    {% for i in text2 %}
-        {{i}}
-        <br>
-    {% endfor %}
+        D
+        <hr>
+        {% for i in text2 %}
+            {{i}}
+            <br>
+        {% endfor %}
+    </div>
 </body>
 </html>
